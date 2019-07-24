@@ -1,0 +1,31 @@
+{
+  "name": "venus",
+  "version": "0.0.1",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "private": true,
+  "entry": {
+    "index": "./index.js"
+  },
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-fontawesome": "^1.6.1",
+    "react-intl": "^2.1.5",
+    "react-redux": "^7.1.0",
+    "react-transition-group": "^2.9.0",
+    "redux": "^4.0.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "webpack": "^4.37.0",
+    "webpack-dev-server": "^3.7.2"
+  },
+  "scripts": {
+    "test": "webpack-dev-server",
+    "build": "set NODE_ENV=production &&  webpack -p --progress --watch --config ./webpack.config.pro.js",
+    "start": "webpack-dev-server --hot --inline --content-base  --history-api-fallback  --open --host 127.0.0.1 --port 8000 --config ./webpack.config.dev.js --profile"
+  }
+}
