@@ -1,25 +1,28 @@
 // webpack.base.conf.js
 const path = require('path');
-const APP_PATH = path.resolve(__dirname, 'pages');
+const APP_PATH = path.resolve(__dirname, './');
+const PAGE_PATH = path.resolve(__dirname, './pages');
 const DIST_PATH = path.resolve(__dirname, '../bin');
 module.exports = {
   entry: {
-    main: [
-      'react-hot-loader/patch',
-    ],
-    app: 'pages/index.js',
+    main: APP_PATH + '/app.js',
     framework: ['react', 'react-dom'],
   },
   output: {
     filename: 'js/bundle.js',
     path: DIST_PATH
   },
+  resolve: {
+    alias: {
+      "@": require('path').resolve(__dirname, './')
+    }
+  },
   module: {
     rules: [
       {
-        test: /\.js?$/,
+        test: /\.(js|jsx)$/,
         use: "babel-loader",
-        include: APP_PATH
+        exclude: /node_modules/
       },
       {
         test: /\.css$/,
@@ -35,12 +38,34 @@ module.exports = {
             options: {
               plugins: [
                 require('autoprefixer')({
-                  browsers: ['last 5 version']
+                  overrideBrowserslist: [
+                    "Android 4.1",
+                    "iOS 7.1",
+                    "Chrome > 31",
+                    "ff > 31",
+                    "ie >= 8"
+                  ]
                 })
               ]
             }
           }
         ]
+      },
+      {
+        test: /\.less$/,
+        use: [{
+          loader: 'style-loader',
+        }, {
+          loader: 'css-loader', // translates CSS into CommonJS
+        }, {
+          loader: 'less-loader', // compiles Less to CSS
+          options: {
+            modifyVars: {
+              'hack': `true; @import "` + APP_PATH + `/public/color.less";`, // Override with less file
+            },
+            javascriptEnabled: true,
+          },
+        }]
       },
       {
         test: /\.(png|jpg|gif|woff|svg|eot|woff2|tff)$/,
@@ -68,16 +93,11 @@ module.exports = {
       minSize: 0,
       cacheGroups: { // cacheGroups对象，定义了需要被抽离的模块
         framework: {
-          test: "framework", // test属性是比较关键的一个值，他可以是一个字符串，也可以是正则表达式，还可以是函数。如果定义的是字符串，会匹配入口模块名称，会从其他模块中把包含这个模块的抽离出来
-          name: "framework", // 抽离后生成的名字，和入口文件模块名称相同，这样抽离出来的新生成的framework模块会覆盖被抽离的framework模块
+          test: "dist", // test属性是比较关键的一个值，他可以是一个字符串，也可以是正则表达式，还可以是函数。如果定义的是字符串，会匹配入口模块名称，会从其他模块中把包含这个模块的抽离出来
+          name: "dist", // 抽离后生成的名字，和入口文件模块名称相同，这样抽离出来的新生成的framework模块会覆盖被抽离的framework模块
           enforce: true
         }
       }
-    }
-  },
-  resolve: {
-    alias: {
-      "@": require('path').resolve(__dirname, './')
     }
   }
 };

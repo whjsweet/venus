@@ -5,7 +5,7 @@ const baseConfig = require('./webpack.config.base.js');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
-module.exports = merge(baseWebpackConfig, {
+module.exports = merge(baseConfig, {
     mode: 'development',
     output: {
         filename: "js/[name].[hash:16].js",
