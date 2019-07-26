@@ -85,19 +85,20 @@ module.exports = {
         }]
       },
     ]
-  },
-  optimization: {
-    splitChunks: {
-      chunks: "all",
-      minChunks: 1,
-      minSize: 0,
-      cacheGroups: { // cacheGroups对象，定义了需要被抽离的模块
-        framework: {
-          test: "dist", // test属性是比较关键的一个值，他可以是一个字符串，也可以是正则表达式，还可以是函数。如果定义的是字符串，会匹配入口模块名称，会从其他模块中把包含这个模块的抽离出来
-          name: "dist", // 抽离后生成的名字，和入口文件模块名称相同，这样抽离出来的新生成的framework模块会覆盖被抽离的framework模块
-          enforce: true
-        }
-      }
-    }
   }
+  // ,
+  // optimization: {
+  //   splitChunks: {
+  //     chunks: "all",
+  //     minChunks: 1,
+  //     minSize: 0,
+  //     cacheGroups: { // cacheGroups对象，定义了需要被抽离的模块
+  //       framework: {
+  //         test: "dist", // test属性是比较关键的一个值，他可以是一个字符串，也可以是正则表达式，还可以是函数。如果定义的是字符串，会匹配入口模块名称，会从其他模块中把包含这个模块的抽离出来
+  //         name: "dist", // 抽离后生成的名字，和入口文件模块名称相同，这样抽离出来的新生成的framework模块会覆盖被抽离的framework模块
+  //         enforce: true
+  //       }
+  //     }
+  //   }
+  // }
 };
