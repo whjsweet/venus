@@ -1,14 +1,12 @@
-import React from 'react';
-import { routerRedux, Route, Switch } from '@/components/reduxaga/router';
+import { Router, Route } from '@/components/reduxaga/router';
 import IndexPage from '@/pages';
-
-const { ConnectedRouter } = routerRedux;
+import React from 'react';
 
 function RouterConfig({ history }) {
   return (
-    <ConnectedRouter history={history}>
-      <Route path="/" exact component={IndexPage} />
-    </ConnectedRouter>
+    <Router history={history}>
+      <Route path="/" component={IndexPage} />
+    </Router>
   );
 }
 

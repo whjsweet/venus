@@ -2,8 +2,8 @@ import React, { PureComponent } from 'react';
 import { Button } from "antd";
 import { connect } from 'react-redux';
 
-@connect(({ number }) => ({
-    number: number
+@connect(({ first }) => ({
+    first: first
 }))
 export default class Index extends PureComponent {
     constructor(props) {
@@ -13,12 +13,12 @@ export default class Index extends PureComponent {
     onClick() {
         const { dispatch } = this.props;
         dispatch({
-            type: 'increment'
+            type: 'first/increment'
         });
     }
 
     render() {
-        const { number } = this.props;
+        const { first: { number } } = this.props;
         return (
             <div>
                 <div>Number: {number}</div>

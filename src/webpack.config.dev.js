@@ -20,16 +20,5 @@ module.exports = merge(baseConfig, {
             hash: false
         }),
         new webpack.HotModuleReplacementPlugin()
-    ],
-    devServer: {
-        port: '8080',
-        contentBase: path.join(__dirname, '../public'),
-        compress: true,
-        historyApiFallback: true,
-        hot: true,
-        https: false,
-        noInfo: true,
-        open: true,
-        proxy: {}
-    }
+    ]
 });

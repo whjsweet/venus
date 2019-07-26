@@ -2,10 +2,10 @@ import invariant from 'invariant';
 import * as sagaEffects from 'redux-saga/effects';
 import warning from 'warning';
 import {
-  takeEveryHelper as takeEvery,
-  takeLatestHelper as takeLatest,
-  throttleHelper as throttle,
-} from 'redux-saga';
+  takeEvery,
+  takeLatest,
+  throttle,
+} from 'redux-saga/effects';
 import { NAMESPACE_SEP } from './constants';
 import prefixType from './prefixType';
 

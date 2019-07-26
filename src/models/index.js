@@ -12,7 +12,9 @@
 export default {
     namespace: 'first',
 
-    state: {},
+    state: {
+        number: 1
+    },
 
     subscriptions: {
         setup({ dispatch, history }) {
@@ -28,12 +30,16 @@ export default {
             // eslint-disable-line
             yield put({ type: 'save' });
         },
+        *increment({ payload }, { call, put }) {
+            // eslint-disable-line
+            yield put({ type: 'increment1' });
+        },
     },
 
     reducers: {
-        increment(state, action) {
+        increment1(state, action) {
             state.number += 1;
-            return state;
+            return { ...state };
         },
     },
 };

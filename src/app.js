@@ -15,9 +15,7 @@ const app = reduxaga();
 app.model(require('./models').default);
 
 // 4. Router
-var router = require('./router').default;
-console.log(router)
-app.router(router);
+app.router(require('./router').default);
 
 // 5. Start
 app.start('#main');

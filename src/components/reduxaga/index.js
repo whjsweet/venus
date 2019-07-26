@@ -1,6 +1,6 @@
 import React from 'react';
 import invariant from 'invariant';
-import createHashHistory from 'history';
+import * as createHistory  from 'history';
 import {
   routerMiddleware,
   routerReducer as routing,
@@ -11,7 +11,7 @@ import * as core from './model';
 import { isFunction } from './model/utils';
 
 export default function (opts = {}) {
-  const history = opts.history || createHashHistory();
+  const history = opts.history || createHistory.createBrowserHistory();
   const createOpts = {
     initialReducer: {
       routing,
