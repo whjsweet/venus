@@ -1,13 +1,13 @@
-import { Router, Route } from '@/components/reduxaga/router';
+import { BrowserRouter, Route, Switch } from '@/frames/reduxaga/router';
 import IndexPage from '@/pages';
 import React from 'react';
 
-function RouterConfig({ history }) {
+import Layout from "@/layouts/BackendLayout";
+
+export default function RouterConfig() {
   return (
-    <Router history={history}>
-      <Route path="/" component={IndexPage} />
-    </Router>
+    <BrowserRouter >
+      <Route path="/index" component={IndexPage} />
+    </BrowserRouter>
   );
 }
-
-export default RouterConfig;

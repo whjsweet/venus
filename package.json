@@ -17,8 +17,10 @@
     "history": "^4.9.0",
     "invariant": "^2.2.4",
     "is-plain-object": "^3.0.0",
+    "path-to-regexp": "^3.0.0",
     "react": "^16.8.6",
     "react-container-query": "^0.11.0",
+    "react-document-title": "^2.0.3",
     "react-dom": "^16.8.6",
     "react-fontawesome": "^1.6.1",
     "react-intl": "^2.1.5",
@@ -31,6 +33,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/plugin-proposal-decorators": "^7.4.4",
     "@babel/plugin-proposal-export-default-from": "^7.5.2",
     "@babel/plugin-transform-runtime": "^7.5.5",

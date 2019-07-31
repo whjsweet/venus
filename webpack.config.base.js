@@ -1,8 +1,8 @@
 // webpack.base.conf.js
 const path = require('path');
-const APP_PATH = path.resolve(__dirname, './');
-const PAGE_PATH = path.resolve(__dirname, './pages');
-const DIST_PATH = path.resolve(__dirname, '../bin');
+const APP_PATH = path.resolve(__dirname, './src');
+const PAGE_PATH = path.resolve(__dirname, './src/pages');
+const DIST_PATH = path.resolve(__dirname, './bin');
 module.exports = {
   entry: {
     main: APP_PATH + '/app.js',
@@ -14,7 +14,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      "@": require('path').resolve(__dirname, './')
+      "@": require('path').resolve(__dirname, './src')
     }
   },
   module: {

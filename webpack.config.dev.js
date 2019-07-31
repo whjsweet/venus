@@ -12,7 +12,7 @@ module.exports = merge(baseConfig, {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'public/index.html',
+            template: 'src/public/index.html',
             inject: 'body',
             minify: {
                 html5: true
